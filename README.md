@@ -58,4 +58,4 @@ Welcome to **zeke SERVER**, a living shrine where every channel is canon, every 
 
 ## 🔗 Join the Shrine
 
-> Invite-only. If you’ve seen the lantern, you already belong.
+[click to join](https://discord.gg/pD8ZktBnS6)
