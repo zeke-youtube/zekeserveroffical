@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ban Appeal Form</title>
+  <style>
+    body {
+      background-color: #ffeeee;
+      font-family: "Comic Sans MS", cursive;
+      text-align: center;
+    }
+    form {
+      border: 5px dotted red;
+      padding: 20px;
+      margin: 50px auto;
+      width: 80%;
+      background-color: #fff8dc;
+    }
+    input, textarea {
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 2px solid hotpink;
+      background-color: #fff0f5;
+    }
+    button {
+      background-color: yellow;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: 3px solid orange;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔨 Ban Appeal Form</h1>
+  <form id="appealForm">
+    <input type="text" id="userid" placeholder="Your Discord User ID"><br>
+    <textarea id="reason" placeholder="Why were you banned?"></textarea><br>
+    <input type="text" id="repeat" placeholder="Will you do it again?"><br>
+    <textarea id="apology" placeholder="Say sorry..."></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("appealForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const userid = document.getElementById("userid").value;
+      const reason = document.getElementById("reason").value;
+      const repeat = document.getElementById("repeat").value;
+      const apology = document.getElementById("apology").value;
+
+      const payload = {
+        content: `<@1430900757485457499>!
+        <@${userid}> has appel heres what they 
+        say for why are you banned : "${reason}" 
+        Will you do it again? : "${repeat}" 
+        say sorry : "${apology}" 
+        type /mod unban <@${userid}> to unban`
+      };
+
+      fetch("https://discord.com/api/webhooks/1437397540931895338/mN4vxfro3iCrFHVUTczZZP9YqAaFsq_xN_ER1hwSJv9ua1IxhIqqI2DVXBPuVIcmNePz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }).then(res => {
+        alert("Appeal sent! May the mods have mercy.");
+      }).catch(err => {
+        alert("Failed to send appeal. You remain banished.");
+      });
+    });
+  </script>
+</body>
+</html>
