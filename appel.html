@@ -51,15 +51,15 @@
       const apology = document.getElementById("apology").value;
 
       const payload = {
-        content: `<@&1430900757485457499>!
-        <@${userid}> has appealed. Here’s what they said:
+  content: `<@&1430900757485457499>!
+<@${userid}> has appealed. Here’s what they said:
 
-        **Reason for ban:** "${reason}"  
-        **Will they do it again?** "${repeat}"  
-        **Apology:** "${apology}"  
+**Reason for ban:** "${reason}"  
+**Will they do it again?** "${repeat}"  
+**Apology:** "${apology}"  
 
 Type \`/mod unban <@${userid}>\` to unban.`
-
+};
       fetch("https://discord.com/api/webhooks/1437397540931895338/mN4vxfro3iCrFHVUTczZZP9YqAaFsq_xN_ER1hwSJv9ua1IxhIqqI2DVXBPuVIcmNePz", {
         method: "POST",
         headers: {
